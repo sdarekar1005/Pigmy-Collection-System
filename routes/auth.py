@@ -27,7 +27,7 @@ def setup():
     agent = Agent(agent_id=agent_id, name=str(data["name"]).strip(), mobile=str(data["mobile"]).strip(), email=str(data["email"]).strip(), status="active")
     db.session.add(agent)
     db.session.flush()
-    user = User(username=agent_id.lower(), role="ADMIN", agent_id=agent.id, status="active")
+    user = User(username=agent_id.lower(), role="AGENT", agent_id=agent.id, status="active")
     user.set_password(data["password"])
     db.session.add(user)
     db.session.commit()
